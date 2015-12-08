@@ -1,0 +1,6 @@
+- if current_user
+	%h1= "Welcome " + current_user.email.capitalize
+-else
+	%div.container-fluid
+		%h1.pull-left.some(style='padding-left:5em;padding-top:7em')= link_to "Log In", new_user_session_path
+		%h1.pull-right.some(style='padding-right:5em;padding-top:7em')= link_to "Create an Account", new_user_registration_path

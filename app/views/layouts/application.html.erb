@@ -10,15 +10,60 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-	 <% if notice %>
-    <div id="notice_wrapper">
-      <p class="notice"><%= notice %> </p>
-    </div>
-    <% elsif alert %>
-    <div id="alert_wrapper">
-      <p class="alert"><%= alert %> </p>
-    </div>
-    <% end %>
+	<%= render 'layouts/nav' %>
+		<% if notice %>
+		<div id="notice_wrapper">
+			<p class="notice"><%= notice %> </p>
+		</div>
+		<% elsif alert %>
+		<div id="alert_wrapper">
+			<p class="alert"><%= alert %> </p>
+		</div>
+		<% end %>
 		<%= yield %>
 	</body>
+	<footer>
+		<!-- Menu Toggle Script -->
+		<script>
+		$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+		});
+		</script>
+		<script>
+		$('ul.nav li.dropdown').hover(function() {
+		$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+		}, function() {
+		$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+		});
+		</script>
+		<script>
+		$(document).ready(function () {
+		$('.dropdown-toggle').dropdown();
+		});
+		</script>
+		<script>
+		$(function() {
+		$('#notice_wrapper').delay(500).fadeIn('slow', function() {
+		$(this).delay(1000).fadeOut();
+		});
+		});
+		</script>
+		<script>
+		$(function() {
+		$('#alert_wrapper').delay(500).fadeIn('slow', function() {
+		$(this).delay(2500).fadeOut();
+		});
+		});
+		</script>
+		<script type="text/javascript">$(document).ready(function() {
+		if ($('textarea').length > 0) {
+		var data = $('textarea');
+		$.each(data, function(i) {
+		CKEDITOR.replace(data[i].id);
+		});
+		}
+		})
+		</script>
+	</footer>
 </html>
