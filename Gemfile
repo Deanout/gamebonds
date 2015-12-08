@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -12,7 +12,18 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
+
+##### Dean's Gems go Hurr #####
+gem 'bootstrap-sass'
+gem 'simple_form'
+gem 'masonry-rails'
+gem 'haml'
+gem 'devise'
+gem 'paperclip'
+gem 'jquery-turbolinks'
+gem 'acts_as_votable'
+##### End of Dean's Gems  #####
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -35,6 +46,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -45,3 +57,7 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+	gem 'pg'
+	gem 'unicorn'
+end

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<h1>Listing Todos</h1>
+<div class="container-fluid">
+  <div class="col-lg-6 col-lg-offset-3">
+    <% i = 0 %>
+    <% @todos.each do |todo| %>
+    
+    <div class="jumbotron">
+      <div class="panel panel-default">
+      <div class="container-fluid pull-left">
+            <h3> [<%= i+=1 %>]</h3>
+          </div>
+        <div class="panel-header" style="text-align:center">
+          
+          <h1><%= todo.title %></h1>
+        </div>
+        <div class="panel-body">
+          <%= todo.body %>
+        </div>
+        <div class="panel-footer">
+          <%= link_to 'Home', root_path, class:"btn btn-default"  %>
+          <% if todo.complete == true %>
+          <%= link_to 'Status: Complete', todo_path(todo), class:"btn btn-success" %>
+          <% else %>
+          <%= link_to 'Status: Not Complete', todo_path(todo), class:"btn btn-danger" %>
+          <% end %>
+          <div class="pull-right">
+            <%= link_to 'New', new_todo_path, class:"btn btn-default" %>
+            <%= link_to 'Show', todo, class:"btn btn-default"  %>
+            <%= link_to 'Edit', edit_todo_path(todo), class:"btn btn-default"  %>
+            <%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<br>
